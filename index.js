@@ -36,4 +36,16 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/:nombre", (req, res) => {
+  let nombre = req.params.nombre;
+  res.render("producto", {
+    layout: "main",
+    frutas: [
+      {
+        nombre: nombre,
+      },
+    ],
+  });
+});
+
 app.listen(PORT, () => console.log(`Iniciando en puerto ${PORT}`));
